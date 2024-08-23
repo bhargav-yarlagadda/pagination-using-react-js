@@ -44,7 +44,7 @@ const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [page, setPage] = useState<number>(1);
   const [prodLimit, setProdLimit] = useState<number>(100);
-  const [click, handleClick] = useState<number>(0);
+  const [click, handleClick] = useState<boolean>(true);
 
   const fetchProducts = async () => {
     try {
@@ -89,7 +89,7 @@ const App = () => {
             placeholder="100"
             onChange={(e) => handleSearch(e.target.value)}
           />
-          <button className="text-white bg-blue-500 p-2 rounded-lg" onClick={() => { handleClick(click + 1); }}>Search</button>
+          <button className="text-white bg-blue-500 p-2 rounded-lg" onClick={() => { handleClick(!click); }}>Search</button>
         </div>
       </div>
       <div className="grid grid-cols-1 bg-black sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
